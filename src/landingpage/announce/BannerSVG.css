@@ -1,0 +1,238 @@
+/* =========================
+   Variables y base
+   ========================= */
+:root {
+  --bg-dark: #0a0a0a;
+  --blue: #2d4fff;
+  --text: #ffffff;
+  --text-soft: rgba(255,255,255,0.85);
+
+  /* Porcentajes del lado negro (izquierda) vs azul (derecha) */
+  --cut-desktop-top: 45%;
+  --cut-desktop-bottom: 25%;
+
+  --cut-tablet-top: 60%;
+  --cut-tablet-bottom: 40%;
+
+  --cut-mobile-top: 70%;
+  --cut-mobile-bottom: 55%;
+
+  /* Máximo ancho del contenido, dinámico por viewport */
+  --content-max-desktop: 48ch; /* control semántico por caracteres */
+  --content-max-tablet: 56ch;
+  --content-max-mobile: 64ch;
+
+  /* Ritmos de animación */
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration: 700ms;
+}
+
+/* =========================
+   Banner principal
+   ========================= */
+.banner {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-dark);
+  min-height: clamp(300px, 40vh, 520px);
+  display: flex;
+  align-items: center;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  color: var(--text);
+  isolation: isolate; /* evita blending accidental */
+  animation: fadeSlideIn var(--duration) var(--ease-soft) both;
+}
+
+/* =========================
+   Fondo azul diagonal
+   ========================= */
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--blue);
+  clip-path: polygon(var(--cut-desktop-top) 0, 100% 0, 100% 100%, var(--cut-desktop-bottom) 100%);
+  z-index: 0;
+  transition:
+    clip-path var(--duration) var(--ease-smooth),
+    transform var(--duration) var(--ease-smooth),
+    opacity var(--duration) var(--ease-smooth);
+  will-change: clip-path, transform;
+}
+
+
+
+/* =========================
+   Contenedor del contenido
+   ========================= */
+.banner-content {
+  position: relative;
+  z-index: 1;
+  margin-left: auto;         /* ancla a la derecha del lado negro */
+  text-align: right;
+  padding-right: clamp(0.5rem, 2vw, 1rem);
+
+  /* Ancho máximo inteligente: crece cuando el viewport se achica */
+  max-width: min(40vw, var(--content-max-desktop));
+  /* Seguridad para no invadir el azul */
+  contain: layout paint; /* asegura que nada escape al overlay */
+}
+
+/* =========================
+   Tipografías y animaciones
+   ========================= */
+.banner-title {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.01em;
+  opacity: 0;
+  transform: translateY(18px) scale(0.985);
+  filter: blur(3px);
+  animation: fadeUp var(--duration) var(--ease-smooth) forwards;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.35);
+}
+
+/* Subtítulo controlado: siempre dos líneas semánticas (dos <p>) */
+.banner-subtitle {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-weight: 300;
+  color: var(--text-soft);
+  line-height: 1.5;
+  margin: 0.15rem 0;
+  opacity: 0;
+  transform: translateY(16px);
+  filter: blur(2px);
+  animation: fadeUp var(--duration) var(--ease-smooth) 120ms forwards;
+
+  /* Barreras de seguridad para que nunca se salga */
+  max-width: 100%;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Botón CTA premium */
+.banner-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.15rem;
+  padding: 0.6rem 1.2rem;
+  font-size: clamp(0.95rem, 1.5vw, 1rem);
+  font-weight: 500;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+  transition: all 280ms var(--ease-soft);
+}
+
+.banner-cta:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.6);
+  transform: translateY(-1px);
+}
+
+/* =========================
+   Keyframes
+   ========================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   Responsividad progresiva
+   - El lado negro crece
+   - El contenido se ensancha
+   - La diagonal se ajusta
+   ========================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+  .banner-overlay {
+    clip-path: polygon(var(--cut-tablet-top) 0, 100% 0, 100% 100%, var(--cut-tablet-bottom) 100%);
+  }
+
+  .banner-content {
+    max-width: min(58vw, var(--content-max-tablet));
+    text-align: left;         /* el bloque se ancla al borde izquierdo */
+    margin-left: 0;
+    margin-right: auto;
+    padding-left: clamp(0.75rem, 2.5vw, 1.25rem);
+    padding-right: 0;
+  }
+
+  .banner-title,
+  .banner-subtitle {
+    text-shadow: none; /* limpieza en layouts más densos */
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .banner-overlay {
+    clip-path: polygon(var(--cut-mobile-top) 0, 100% 0, 100% 100%, var(--cut-mobile-bottom) 100%);
+  }
+
+  .banner-content {
+    max-width: min(78vw, var(--content-max-mobile));
+    padding-left: clamp(1rem, 4vw, 1.5rem);
+  }
+
+  .banner-cta {
+    align-self: flex-start;
+  }
+}
+
+/* Mobile pequeño */
+@media (max-width: 480px) {
+  .banner-content {
+    max-width: 92vw; /* ocupa casi todo el lado negro */
+  }
+}
+
+/* =========================
+   Protección extra: líneas nunca invaden el azul
+   ========================= */
+
+/* Opcional: guía invisible que recorta contenidos si el overlay se acerca demasiado */
+.banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  /* Un padding lógico en el borde de la diagonal
+     para garantizar que textos nunca crucen */
+  padding-right: 2.5%;
+}
+
+/* Si hay imágenes o SVG dentro del contenido, se adaptan */
+.banner-content img,
+.banner-content svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
