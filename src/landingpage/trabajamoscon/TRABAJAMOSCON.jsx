@@ -9,11 +9,11 @@ function TRABAJAMOSCON() {
       <h2 className="fw-bold mb-2">¿Con quiénes trabajamos?</h2>
       <p className="text-muted mb-5">Solucionamos problemas a:</p>
 
-      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <div className="row row-cols-1  rounded p-3 pb-4  row-cols-md-2 row-cols-lg-3 g-4">
         {empresas.map((nombre, idx) => (
           <div className="col" key={idx}>
             <motion.div
-              className="card h-100 rounded-4 shadow-sm border-0"
+              className="card h-100 rounded-4 shadow-sm border"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.05, duration: 0.2, ease: "easeOut" }}
@@ -35,7 +35,7 @@ function TRABAJAMOSCON() {
                 </div>
                 <div className="mt-auto d-flex justify-content-between">
                   <a href="#" className="link-primary text-decoration-none">Ver más</a>
-                  <button className="btn btn-sm btn-outline-danger rounded-pill px-3">borrar</button>
+                  <button className="btn btn-sm btn-outline-primary rounded-pill px-3">Visitar</button>
                 </div>
               </div>
             </motion.div>
