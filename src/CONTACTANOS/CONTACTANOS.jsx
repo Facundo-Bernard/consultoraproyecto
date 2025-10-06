@@ -124,7 +124,7 @@ export default function ContactoForm() {
                     </motion.div>
                   )}
                   {status === "error" && (
-                    <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="alert alert-danger rounded-pill contacto-alert">
+                    <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="alert text-danger alert-danger rounded-pill contacto-alert">
                       Ocurrió un error. Intentá nuevamente.
                     </motion.div>
                   )}
@@ -223,7 +223,7 @@ export default function ContactoForm() {
 
                       <div className="text-muted small text-center text-md-end">
                         <div>Tel: <strong className="text-white">+54 11 1234 5678</strong></div>
-                        <div>Email: <strong className="text-white">contacto@vidrieriaflash.com</strong></div>
+                        <div>Email: <strong className="text-white">contacto@ejemplo.com</strong></div>
                       </div>
                     </div>
 

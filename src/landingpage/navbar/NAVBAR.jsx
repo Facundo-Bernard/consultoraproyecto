@@ -30,16 +30,16 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="mainNav">
             <ul className="navbar-nav ms-auto gap-3 text-end">
               <li className="nav-item">
-                <a href="#servicios" className="nav-link">Servicios</a>
+                <a href="#servicios" className="nav-link">Software</a>
               </li>
               <li className="nav-item">
-                <a href="#proyectos" className="nav-link">Proyectos</a>
+                <a href="#proyectos" className="nav-link">Diseño</a>
               </li>
               <li className="nav-item">
                 <a href="#equipo" className="nav-link">Equipo</a>
               </li>
               <li className="nav-item">
-                <a href="#contacto" className="nav-link"><Link to="/contactos">Contactanos</Link></a>
+                <Link to="/contactos" className="nav-link">Contactanos</Link>
               </li>
             </ul>
           </div>
