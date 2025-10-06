@@ -1,6 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
@@ -38,7 +39,7 @@ export default function Navbar() {
                 <a href="#equipo" className="nav-link">Equipo</a>
               </li>
               <li className="nav-item">
-                <a href="#contacto" className="nav-link">Contacto</a>
+                <a href="#contacto" className="nav-link"><Link to="/contactos">Contactanos</Link></a>
               </li>
             </ul>
           </div>

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import ROUTES from './ROUTES';
 import './App.css'
 import LANDINGPAGE from './landingpage/LANDINGPAGE'
 import Navbar from './landingpage/navbar/NAVBAR';
@@ -12,7 +12,8 @@ function App() {
   return (
     <>
     <Navbar></Navbar>
-      <LANDINGPAGE></LANDINGPAGE>
+    <ROUTES></ROUTES>
+    
       <Footer></Footer>
     </>
   )
