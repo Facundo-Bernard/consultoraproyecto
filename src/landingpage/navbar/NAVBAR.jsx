@@ -1,21 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./Navbar.css";
 import { Link } from "react-router-dom";
+import "./Navbar.css"; // lo dejamos solo para pequeños detalles opcionales
 
 export default function Navbar() {
+  const [hovered, setHovered] = useState(false);
+
   return (
-    <header className="nav-wrap rounded" aria-label="Sitio principal">
-      <nav className="navbar navbar-expand-lg navbar-dark nav rounded-bottom">
-        <div className="container-fluid">
+    <header
+      className="position-sticky top-0 w-100"
+      style={{ zIndex: 1050, transition: "all 0.4s ease" }}
+      aria-label="Barra principal"
+    >
+      <nav
+        className="navbar navbar-expand-lg navbar-dark py-2"
+        style={{
+          background:
+            "linear-gradient(90deg, rgb(31,42,112) 0%, rgba(26,26,80,0.93) 15%, rgba(20,20,48,0.93) 30%, rgba(13,13,32,0.93) 50%, rgba(10,10,10,0.84) 100%)",
+          backdropFilter: "blur(10px)",
+          WebkitBackdropFilter: "blur(10px)",
+          transition: "background 0.4s ease",
+        }}
+      >
+        <div className="container-fluid px-4">
           {/* Logo */}
-          <a href="/" className="navbar-brand d-flex align-items-center" aria-label="Inicio">
-            <img src="/logo.svg" alt="Logo" className="nav-logo" />
+          <a
+            href="/"
+            className="navbar-brand d-flex align-items-center"
+            aria-label="Inicio"
+          >
+            <img
+              src="/logo.svg"
+              alt="Logo"
+              height="26"
+              className="me-2"
+              style={{ width: "auto" }}
+            />
+            <span className="fw-semibold text-white">Logo</span>
           </a>
 
-          {/* Botón toggler */}
+          {/* Botón hamburguesa */}
           <button
-            className="navbar-toggler shadow-none"
+            className="navbar-toggler border-0 shadow-none"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#mainNav"
@@ -27,24 +53,84 @@ export default function Navbar() {
           </button>
 
           {/* Links */}
-          <div className="collapse navbar-collapse" id="mainNav">
-            <ul className="navbar-nav ms-auto gap-3 text-end">
-              <li className="nav-item">
-                <a href="#servicios" className="nav-link">Software</a>
+          <div className="collapse navbar-collapse justify-content-end" id="mainNav">
+            <ul className="navbar-nav gap-4 align-items-center">
+              <li
+                className="nav-item position-relative"
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+              >
+                <span
+                  className="nav-link fw-medium text-white position-relative px-0"
+                  style={{
+                    transition: "color 0.3s ease, transform 0.3s ease",
+                  }}
+                >
+                  Nuestras Soluciones
+                </span>
               </li>
+
               <li className="nav-item">
-                <a href="#proyectos" className="nav-link">Diseño</a>
+                <a href="#equipo" className="nav-link text-white fw-medium px-0">
+                  Equipo
+                </a>
               </li>
+
               <li className="nav-item">
-                <a href="#equipo" className="nav-link">Equipo</a>
-              </li>
-              <li className="nav-item">
-                <Link to="/contactos" className="nav-link">Contactanos</Link>
+                <Link
+                  to="/contactos"
+                  className="nav-link text-white fw-medium px-0"
+                >
+                  Contáctanos
+                </Link>
               </li>
             </ul>
           </div>
         </div>
       </nav>
+
+      {/* Panel estilo Apple que baja todo */}
+      <div
+        className={`position-absolute start-0 w-100 soluciones-panel ${
+          hovered ? "show" : ""
+        }`}
+        style={{
+          top: "calc(100%)", // Se coloca justo debajo de la navbar
+          background: "rgba(10,10,30,0.92)",
+          backdropFilter: "blur(15px)",
+          WebkitBackdropFilter: "blur(15px)",
+          boxShadow: "0 10px 25px rgba(0,0,0,0.4)",
+          opacity: hovered ? 1 : 0,
+          visibility: hovered ? "visible" : "hidden",
+          transform: hovered ? "translateY(0)" : "translateY(-15px)",
+          transition: "all 0.35s ease",
+        }}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
+        <div className="container py-4">
+          <div className="row text-center text-white">
+            <div className="col-12 col-md-4 mb-3">
+              <h6 className="fw-semibold mb-2">Software</h6>
+              <p className="text-white-50 small mb-0">
+                Desarrollo a medida y sistemas web
+              </p>
+            </div>
+            <div className="col-12 col-md-4 mb-3">
+              <h6 className="fw-semibold mb-2">Diseño</h6>
+              <p className="text-white-50 small mb-0">
+                Identidad visual, UX/UI y branding
+              </p>
+            </div>
+            <div className="col-12 col-md-4 mb-3">
+              <h6 className="fw-semibold mb-2">Marketing</h6>
+              <p className="text-white-50 small mb-0">
+                Campañas digitales y posicionamiento
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
   );
 }
