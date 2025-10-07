@@ -36,7 +36,6 @@ export default function Navbar() {
               className="me-2"
               style={{ width: "auto" }}
             />
-            <span className="fw-semibold text-white">Logo</span>
           </a>
 
           {/* Botón hamburguesa */}

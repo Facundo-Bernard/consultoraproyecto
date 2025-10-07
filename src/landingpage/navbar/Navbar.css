@@ -33,15 +33,16 @@
 /* Navbar.css */
 
 /* Cuando el menú hamburguesa está abierto */
-@media (max-width: 991.98px) { /* breakpoint lg de Bootstrap */
-  #mainNav.show .navbar-nav {
+@media (max-width: 991.98px) { 
+  #mainNav .navbar-nav {
     display: flex;
     flex-direction: column; /* Vertical */
   }
 
-  /* Mueve "Nuestras Soluciones" al final */
-  #mainNav.show .navbar-nav .nav-item:first-child {
-    order: 999; /* fuerza que esté al final */
-    margin-top: 1rem; /* opcional, separa un poco */
+  /* Primer item al final inmediatamente */
+  #mainNav .navbar-nav .nav-item:first-child {
+    order: 999;
+    margin-top: 1rem; /* opcional */
   }
 }
+
