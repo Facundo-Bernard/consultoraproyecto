@@ -19,6 +19,16 @@
   transform: scaleX(1);
 }
 
+/* Fix mínimo: limita la animación/subrayado al ancho del texto dentro del panel */
+.soluciones-panel .nav-link {
+  display: inline-block;    /* que ocupe sólo lo que el texto necesita */
+  position: relative;       /* referencia para ::after */
+}
+
+/* Aseguramos que el pseudo-elemento use la referencia del texto (no del contenedor) */
+
+
+
 @keyframes fadeDown {
   from {
     opacity: 0;

@@ -1,0 +1,142 @@
+/* Tonalidades azules / diseño limpio inspirado en la imagen */
+:root {
+  --blue-900: #0b1b4a;
+  --blue-800: #15306a;
+  --blue-700: #254a8f;
+  --accent: #38c6ff; /* acento suave */
+  --muted: #7b8aa5;
+  --pill-bg: rgba(236,243,255,0.9);
+}
+
+/* Hero general */
+.split-hero {
+  position: relative;
+  overflow: visible;
+  background: linear-gradient(180deg, rgba(245,248,255,1) 0%, rgba(243,246,255,1) 100%);
+  padding-bottom: 5rem;
+}
+
+/* Título grande */
+.hero-title {
+  font-weight: 700;
+  color: var(--blue-900);
+  line-height: 1.02;
+  font-size: clamp(2.8rem, 4.5vw, 4.6rem);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.hero-accent {
+  display: inline-block;
+  color: var(--accent);
+  font-weight: 800;
+  transform: translateY(0);
+  background: linear-gradient(90deg, rgba(56,198,255,0.15), rgba(56,198,255,0.05));
+  padding: 0 0.15rem;
+  border-radius: 6px;
+}
+
+/* Pill search */
+.pill-search {
+  background: var(--pill-bg);
+  border-radius: 50px;
+  box-shadow: 0 6px 24px rgba(19,40,80,0.06);
+  overflow: hidden;
+}
+
+.pill-text {
+  color: var(--blue-700);
+  font-weight: 600;
+  border-radius: 50px;
+}
+
+.btn-pill-icon {
+  background: linear-gradient(180deg, var(--accent), #2fb8ff);
+  color: white;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 6px;
+  margin-left: 8px;
+  border: none;
+  box-shadow: 0 6px 18px rgba(45,150,255,0.18);
+}
+
+/* Nota debajo del pill */
+.pill-note {
+  color: var(--muted);
+}
+
+/* split-container (lado derecho) */
+.split-container {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeSlide 0.55s ease forwards;
+  gap: 0.5rem;
+}
+
+/* Elementos renderizados */
+.split-item {
+  min-width: 120px;
+  align-items: center;
+}
+
+/* imagenes con borde suave */
+.split-image {
+  border-radius: 12px;
+  max-width: 100%;
+  box-shadow: 0 10px 30px rgba(21,48,80,0.08);
+  transform-origin: center;
+  transition: transform 400ms cubic-bezier(.2,.9,.2,1);
+}
+.split-image:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+/* text blocks */
+.split-text-block .split-title {
+  font-size: 1rem;
+  color: var(--blue-800);
+  font-weight: 700;
+}
+.split-text-block .split-desc {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* animación */
+@keyframes fadeSlide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* blob decorativo en la derecha */
+.hero-blob {
+  position: absolute;
+  right: -6%;
+  top: 6%;
+  width: 36%;
+  height: 72%;
+  background: radial-gradient(closest-side at 30% 20%, rgba(56,198,255,0.18), rgba(56,198,255,0.08) 30%, transparent 60%),
+              radial-gradient(closest-side at 80% 80%, rgba(30,120,255,0.06), transparent 40%);
+  filter: blur(40px);
+  border-radius: 40% 60% 40% 60%;
+  pointer-events: none;
+  z-index: 0;
+  transform: translateZ(0);
+}
+
+/* responsive: en xs apilar */
+@media (max-width: 991.98px) {
+  .split-container {
+    gap: 1rem;
+  }
+  .hero-blob {
+    display: none;
+  }
+}

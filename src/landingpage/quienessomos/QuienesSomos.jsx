@@ -8,7 +8,7 @@ export default function QuienesSomos() {
       <div className="container">
         <div className="row align-items-center g-5">
           {/* Lado Izquierdo */}
-          <div className="col-lg-6">
+          <div className=" text-black col-lg-6">
             <motion.div
               className="qs-content"
               initial={{ opacity: 0, x: -80 }}
@@ -16,10 +16,10 @@ export default function QuienesSomos() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true }}
             >
-              <h2 className="qs-title display-4 fw-bold mb-4">
+              <h2 className="qs-title  display-4 fw-bold mb-4">
                 ¿Quiénes <span className="highlight">somos?</span>
               </h2>
-              <p className="qs-sub lead text-muted mb-4">
+              <p className="qs-sub text-dark lead  mb-4">
                 Somos una <strong>consultora estratégica</strong> que diseña y ejecuta
                 soluciones digitales orientadas a resultados medibles.
                 Nuestro enfoque combina innovación, análisis y creatividad

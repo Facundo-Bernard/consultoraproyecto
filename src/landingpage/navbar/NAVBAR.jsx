@@ -110,23 +110,30 @@ export default function Navbar() {
         <div className="container py-4">
           <div className="row text-center text-white">
             <div className="col-12 col-md-4 mb-3">
-              <h6 className="fw-semibold mb-2">Software</h6>
+              <div></div>
+              <Link
+                  to="/softwarepage"
+                  className="nav-link text-white fw-medium px-0"
+                >
+                  Software e IA
+                </Link>
               <p className="text-white-50 small mb-0">
-                Desarrollo a medida y sistemas web
+                Desarrollo a medida y sistemas web, entrenamiento de ia
               </p>
             </div>
             <div className="col-12 col-md-4 mb-3">
-              <h6 className="fw-semibold mb-2">Diseño</h6>
+              <h6 className="fw-semibold nav-link mb-2">Graphics y Marketing</h6>
               <p className="text-white-50 small mb-0">
-                Identidad visual, UX/UI y branding
+                Campañas digitales, Animaciones / Diseño y posicionamiento
               </p>
             </div>
             <div className="col-12 col-md-4 mb-3">
-              <h6 className="fw-semibold mb-2">Marketing</h6>
+              <h6 className="fw-semibold mb-2">Gaming</h6>
               <p className="text-white-50 small mb-0">
-                Campañas digitales y posicionamiento
+                Experiencia en gaming y desarrollo de videojuegos
               </p>
             </div>
+            
           </div>
         </div>
       </div>
