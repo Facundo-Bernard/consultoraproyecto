@@ -42,7 +42,6 @@
   /* Primer item al final inmediatamente */
   #mainNav .navbar-nav .nav-item:first-child {
     order: 999;
-    margin-top: 1rem; /* opcional */
   }
 }
 
