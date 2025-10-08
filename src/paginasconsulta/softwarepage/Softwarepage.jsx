@@ -1,7 +1,7 @@
 // Softwarepage.jsx
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import SplitContent from "./SplitContent/SplitContent"; // ajustá ruta si tu SplitContent está en otra carpeta
+import SplitContent from "../SplitContent/SplitContent"; // ajustá ruta si tu SplitContent está en otra carpeta
 import "./Softwarepage.css"; // usa tus estilos existentes
 
 export default function Softwarepage() {

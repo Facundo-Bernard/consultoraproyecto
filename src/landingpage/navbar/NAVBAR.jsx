@@ -122,7 +122,12 @@ export default function Navbar() {
               </p>
             </div>
             <div className="col-12 col-md-4 mb-3">
-              <h6 className="fw-semibold nav-link mb-2">Graphics y Marketing</h6>
+              <Link
+                  to="/marketingpage"
+                  className="fw-semibold nav-link mb-2"
+                >
+                  Graphics y Marketing
+                </Link>
               <p className="text-white-50 small mb-0">
                 Campañas digitales, Animaciones / Diseño y posicionamiento
               </p>

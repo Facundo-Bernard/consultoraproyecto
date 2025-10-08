@@ -1,0 +1,54 @@
+.split-container {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlide 0.6s forwards;
+}
+
+.split-item img {
+  border-radius: 12px;
+}
+
+.split-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #1f2a70;
+}
+
+/* Animación */
+@keyframes fadeSlide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Responsive: apilar en móvil y priorizar imágenes arriba ===== */
+@media (max-width: 767.98px) {
+  .split-container {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .split-item {
+    flex-basis: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+
+  .split-item img {
+    display: block;
+    margin: 0 auto 0.75rem;
+    max-width: 100%;
+  }
+
+  /* Si el navegador soporta :has(), colocamos primero los items con imagen */
+  .split-container .split-item:has(img) {
+    order: 0;
+  }
+  .split-container .split-item:has(.split-text-block),
+  .split-container .split-item:has(.split-text),
+  .split-container .split-item:has(p) {
+    order: 1;
+  }
+}
