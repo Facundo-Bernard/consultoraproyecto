@@ -72,7 +72,7 @@ export default function Softwarepage() {
           <h2 className="fw-bold" style={{ color: "#0b1b4a" }}>
             Nuestras soluciones
           </h2>
-          <p className="text-muted">
+          <p className="text-dark">
           </p>
         </header>
 
