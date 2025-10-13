@@ -20,8 +20,9 @@ export default function QuienesSomos() {
                 ¿Quiénes <span className="highlight">somos?</span>
               </h2>
               <p className="qs-sub text-dark lead  mb-4">
-                Somos una <strong>consultora estratégica</strong> que diseña y ejecuta
-                soluciones digitales orientadas a resultados medibles.
+                Somos una <strong>consultora estratégica </strong>
+                enfocada en resolver problemas,
+                desarrollando soluciones digitales de principio a fin.
                 Nuestro enfoque combina innovación, análisis y creatividad
                 para transformar los desafíos de nuestros clientes en oportunidades.
               </p>

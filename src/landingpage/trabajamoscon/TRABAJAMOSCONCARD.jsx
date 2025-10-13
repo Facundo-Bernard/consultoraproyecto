@@ -1,34 +1,44 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Producto from './Producto';
+import { motion } from 'framer-motion';
 
-function TRABAJAMOSCON() {
-  const empresas = [
-    { empresa: "Empresa 1", titulo: "Title", descripcion: "Description", link: "#" },
-    { empresa: "Empresa 2", titulo: "Title", descripcion: "Description", link: "#" },
-    { empresa: "Empresa 3", titulo: "Title", descripcion: "Description", link: "#" },
-    { empresa: "Empresa 4", titulo: "Title", descripcion: "Description", link: "#" },
-    { empresa: "Empresa 5", titulo: "Title", descripcion: "Description", link: "#" },
-    { empresa: "Empresa 6", titulo: "Title", descripcion: "Description", link: "#" },
-  ];
-
+function TRABAJAMOSCONCARD({ empresa, titulo, descripcion, link }) {
   return (
-    <section className="container py-5 text-center">
-      <h2 className="fw-bold mb-2">¿Con quiénes trabajamos?</h2>
-      <p className="text-muted mb-5">Solucionamos problemas a:</p>
-
-      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-        {empresas.map((e, idx) => (
-          <Producto
-            key={idx}
-            empresa={e.empresa}
-            titulo={e.titulo}
-            descripcion={e.descripcion}
-            link={e.link}
-          />
-        ))}
-      </div>
-    </section>
+    <div className="col">
+      <motion.div
+        className="card h-100 rounded-4 shadow-sm border"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+        whileHover={{ y: -6, scale: 1.02 }}
+        whileTap={{ scale: 0.99 }}
+      >
+        <div className="card-body d-flex flex-column">
+          <h5 className="fw-bold mb-3">“{empresa}”</h5>
+          <div className="d-flex align-items-center mb-3">
+            <img
+              src="https://via.placeholder.com/48"
+              alt={empresa}
+              className="rounded-circle me-3"
+            />
+            <div>
+              <h6 className="mb-0 fw-semibold">{titulo}</h6>
+              <small className="text-muted">{descripcion}</small>
+            </div>
+          </div>
+          <div className="mt-auto d-flex justify-content-between">
+            <a href={link} className="link-primary text-decoration-none">
+              Ver más
+            </a>
+            <button
+              onClick={() => window.open(link, "_blank")}
+              className="btn btn-sm btn-outline-primary rounded-pill px-3"
+            >
+              Visitar
+            </button>
+          </div>
+        </div>
+      </motion.div>
+    </div>
   );
 }
 
-export default TRABAJAMOSCON;
+export default TRABAJAMOSCONCARD;

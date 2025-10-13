@@ -5,15 +5,35 @@ import "./BannerSVG.css";
 export default function Banner() {
   return (
     <section className="banner rounded mr-1 ml-1 mt-1" aria-label="Banner hero">
+      <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+        rel="stylesheet"
+      />
+      <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700&display=swap" rel="stylesheet"></link>
+
+      <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&display=swap" rel="stylesheet"></link>
+
+
       <div className="banner-overlay"></div>
 
       <div className="banner-content">
-        <h2 className="banner-title">Consultora Estratégica</h2>
+        <h2
+          style={{
+            fontFamily: "'Saira Condensed', sans-serif",
+            fontSize: "4rem",
+            textTransform: "uppercase",
+            letterSpacing: "1px",
+            color: "#fff",
+          }}
+        >
+          Platoon Digital
+        </h2>
+
         <p className="banner-subtitle">
-          Diseñamos y ejecutamos estrategias digitales
+          Consultora digital enfocada en ejecución y resultados.
         </p>
         <p className="banner-subtitle">
-          orientadas a resultados medibles.
+          Todo en un mismo equipo
         </p>
 
         <a href="#contacto" className="banner-cta">Contáctanos</a>

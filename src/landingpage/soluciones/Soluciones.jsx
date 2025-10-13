@@ -7,21 +7,21 @@ export default function soluciones() {
 
   const data = [
     {
-      title: "Soluciones en X",
-      items: ["Medida y corte", "Instalación rápida", "Asesoramiento"],
+      title: "Soluciones en Software e IA",
+      items: ["Desarrollo de programas empresariales", "Desarrollo web", "Entrenamiento e implementacion IA"],
       variant: "light",
       cta: "Ver más"
     },
     {
-      title: "Soluciones en X",
-      items: ["Vidrios templados", "Colocación profesional", "Garantía 1 año"],
+      title: "Soluciones en Graphics y Marketing ",
+      items: ["Enfoque de marketing multicanal", "Consultoria SEO", "Motion Graphics", "Diseño grafico integral"],
       variant: "primary",
       highlighted: true,
       cta: "Pedir presupuesto"
     },
     {
-      title: "Soluciones en X",
-      items: ["Reparaciones", "Retiro y reciclaje", "Atención local"],
+      title: "Soluciones en Gaming",
+      items: ["Diseño y desarollo integral", "Produccion in house", "Desarrollo y modelado 3D"],
       variant: "light",
       cta: "Ver más"
     },
